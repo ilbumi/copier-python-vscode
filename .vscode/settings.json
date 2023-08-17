@@ -1,0 +1,13 @@
+{
+    "conventionalCommits.scopes": [
+        "template-dev",
+        "template-docs",
+        "template-workflow",
+        "template-scripts",
+        "project-dev",
+        "project-docs",
+        "project-workflow",
+        "project-automation",
+        "project-deploy",
+    ]
+}
