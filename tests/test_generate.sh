@@ -2,7 +2,7 @@
 
 source tests/setup.sh
 
-pdm install
+pdm install nox
 nox -e test
 
 popd
