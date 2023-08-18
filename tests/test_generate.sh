@@ -16,6 +16,8 @@ echo "       INITIAL CODE QUALITY CHECKS"
 echo "///////////////////////////////////////////"
 echo
 
+pdm run nox -e format
+pdm run nox -e check_types
 pdm run nox -e lint
 
 popd
