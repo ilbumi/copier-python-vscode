@@ -9,3 +9,9 @@ os.environ.update(PDM_IGNORE_SAVED_PYTHON="1", PDM_USE_VENV="1")
 def test(session):
     session.run_always("pdm", "install", "-G", "ci-tests", external=True)
     session.run("pytest", "tests/")
+
+
+@nox.session
+def lint(session):
+    session.run_always("pdm", "install", "-G", "ci-quality", external=True)
+    session.run("ruff", "check", "--config", "config/ruff.toml", "./")
