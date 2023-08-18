@@ -2,6 +2,8 @@
 
 source tests/setup.sh
 
+pdm install -G nox
+
 echo
 echo "///////////////////////////////////////////"
 echo "             TESTING PROJECT"
