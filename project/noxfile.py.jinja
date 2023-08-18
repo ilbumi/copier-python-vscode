@@ -22,3 +22,10 @@ def format(session):
 def lint(session):
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("ruff", "check", "--config", "config/ruff.toml", "./")
+
+
+@nox.session
+def check_types(session):
+    session.run_always("pdm", "install", "-G", "ci-quality", external=True)
+    session.run("mypy", "--config-file", "config/mypy.ini", "./")
+    
