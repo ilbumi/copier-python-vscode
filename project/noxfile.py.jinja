@@ -1,31 +1,53 @@
+"""File with common jobs definitions. Run them with 'pdm run nox -e [job_name]'."""
 import os
 
 import nox
+from nox.sessions import Session
 
 os.environ.update(PDM_IGNORE_SAVED_PYTHON="1", PDM_USE_VENV="1")
 
 
 @nox.session
-def test(session):
+def test(session: Session) -> None:
+    """Run tests.
+
+    Args:
+        session (Session): nox session object
+    """      
     session.run_always("pdm", "install", "-G", "ci-tests", external=True)
     session.run("pytest", "tests/")
 
 
 @nox.session
-def format(session):
+def format(session: Session) -> None:
+    """Run autoformatters.
+
+    Args:
+        session (Session): nox session object
+    """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("ruff", "check", "--config", "config/ruff.toml", "--fix", "./")
     session.run("black", "--config", "config/black.toml", "./")
 
 
 @nox.session
-def lint(session):
+def lint(session: Session) -> None:
+    """Run ruff checks.
+
+    Args:
+        session (Session): nox session object
+    """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("ruff", "check", "--config", "config/ruff.toml", "./")
 
 
 @nox.session
-def check_types(session):
+def check_types(session: Session) -> None:
+    """Run type checking.
+
+    Args:
+        session (Session): nox session object
+    """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("mypy", "--config-file", "config/mypy.ini", "./")
-    
+
