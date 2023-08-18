@@ -46,10 +46,5 @@ jobs:
       - name: Install dependencies
         run: pip install copier==${{ matrix.copier-version }} copier-templates-extensions
 
-      - name: Setup tests (Unix)
-        run: bash tests/setup.sh
-        if: runner.os != 'Windows'
-
       - name: Run tests
         run: bash tests/test_generate.sh
-        working-directory: ${{ github.workspace }}/tests/tmp
