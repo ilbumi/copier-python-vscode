@@ -2,7 +2,7 @@
 
 source tests/setup.sh
 
-pdm install -G nox
+pdm install
 
 echo
 echo "///////////////////////////////////////////"
