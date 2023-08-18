@@ -3,7 +3,7 @@
 source tests/setup.sh
 
 pdm install
-pdm run test
+pdm run nox -e test
 
 popd
 rm -rf $DEST
