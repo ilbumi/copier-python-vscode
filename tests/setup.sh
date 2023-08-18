@@ -26,12 +26,12 @@ echo "///////////////////////////////////////////"
 echo
 
 copier copy --trust -r HEAD "${template}" "${DEST}" \
--d testing=true \
 -d project_name="copier-pdm-testing" \
 -d project_description='Testing this great template' \
 -d author_fullname="Tester" \
 -d author_username="tester" \
--d author_email="tester@example.org"
+-d author_email="tester@example.org" \
+-d repository_provider="github.com"
 
 pushd $DEST
 git init .
