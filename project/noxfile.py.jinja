@@ -56,3 +56,13 @@ def check_types(session: Session) -> None:
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("mypy", "--config-file", "config/mypy.ini", *PYSRC)
 
+
+@nox.session
+def check_safety(session: Session) -> None:
+    """Run safety checks.
+
+    Args:
+        session (Session): nox session object
+    """
+    session.run_always("pdm", "install", "-G", "ci-quality", external=True)
+    session.run("bandit", "--configfile", "config/bandit.toml", *PYSRC)
