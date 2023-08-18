@@ -25,7 +25,7 @@ echo "             GENERATING PROJECT"
 echo "///////////////////////////////////////////"
 echo
 
-copier copy --trust -r HEAD "${template}" "${DEST}" \
+copier copy --trust --defaults -r HEAD "${template}" "${DEST}" \
 -d project_name="copier-pdm-testing" \
 -d project_description='Testing this great template' \
 -d author_fullname="Tester" \
