@@ -32,7 +32,7 @@ def format(session: Session) -> None:
     session.run("ssort", *PYSRC)
     session.run("isort", *PYSRC)
     session.run("ruff", "check", "--config", "config/ruff.toml", "--fix", *PYSRC)
-    session.run("black", "-r", "--config", "config/black.toml", *PYSRC)
+    session.run("black", "--config", "config/black.toml", *PYSRC)
 
 
 @nox.session
@@ -65,7 +65,7 @@ def check_safety(session: Session) -> None:
         session (Session): nox session object
     """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
-    session.run("bandit", "--configfile", "config/bandit.toml", *PYSRC)
+    session.run("bandit", "-r", "--configfile", "config/bandit.toml", *PYSRC)
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "pdm", "export", "-f", "requirements", "-o", requirements.name, "--without-hashes", external=True
