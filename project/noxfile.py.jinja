@@ -32,7 +32,7 @@ def format(session: Session) -> None:
     session.run("ssort", *PYSRC)
     session.run("isort", *PYSRC)
     session.run("ruff", "check", "--config", "config/ruff.toml", "--fix", *PYSRC)
-    session.run("black", "--config", "config/black.toml", *PYSRC)
+    session.run("black", "-r", "--config", "config/black.toml", *PYSRC)
 
 
 @nox.session
