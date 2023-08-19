@@ -36,4 +36,4 @@ copier copy --trust --defaults -r HEAD "${template}" "${DEST}" \
 pushd $DEST
 git init .
 git add -A .
-git commit -m "test"
+git commit -m "feat: init a repo"
