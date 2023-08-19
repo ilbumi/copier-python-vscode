@@ -18,7 +18,7 @@ def test(session: Session) -> None:
         session (Session): nox session object
     """
     session.run_always("pdm", "install", "-G", "ci-tests", external=True)
-    session.run("pytest", "tests/")
+    session.run("pytest", "--cov", "tests/")
 
 
 @nox.session
