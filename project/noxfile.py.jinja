@@ -1,16 +1,14 @@
 """File with common jobs definitions. Run them with 'pdm run nox -e [job_name]'."""
 import os
+import tempfile
 
 import nox
 from nox.sessions import Session
 
 os.environ.update(PDM_IGNORE_SAVED_PYTHON="1", PDM_USE_VENV="1")
 
-PYSRC = [
-    "src/",
-    "noxfile.py",
-    "tests/"
-]
+PYSRC = ["src/", "noxfile.py", "tests/"]
+
 
 @nox.session
 def test(session: Session) -> None:
@@ -18,7 +16,7 @@ def test(session: Session) -> None:
 
     Args:
         session (Session): nox session object
-    """      
+    """
     session.run_always("pdm", "install", "-G", "ci-tests", external=True)
     session.run("pytest", "tests/")
 
@@ -56,3 +54,18 @@ def check_types(session: Session) -> None:
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("mypy", "--config-file", "config/mypy.ini", *PYSRC)
 
+
+@nox.session
+def check_safety(session: Session) -> None:
+    """Run safety checks.
+
+    Args:
+        session (Session): nox session object
+    """
+    session.run_always("pdm", "install", "-G", "ci-quality", external=True)
+    session.run("bandit", "--configfile", "config/bandit.toml", *PYSRC)
+    with tempfile.NamedTemporaryFile() as requirements:
+        session.run(
+            "pdm", "export", "-f", "requirements", "-o", requirements.name, "--without-hashes", external=True
+        )
+        session.run("safety", "check", f"--file={requirements.name}", "--full-report")

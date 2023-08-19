@@ -21,6 +21,7 @@ echo
 pdm run nox -e format
 pdm run nox -e check_types
 pdm run nox -e lint
+pdm run nox -e check_safety
 
 popd
 rm -rf $DEST
