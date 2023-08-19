@@ -66,6 +66,6 @@ def check_safety(session: Session) -> None:
     session.run("bandit", "--configfile", "config/bandit.toml", *PYSRC)
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
-            "pdm", "export", "-f", requirements.name, "--without-hashes", external=True
+            "pdm", "export", "-f", "requirements", "-o", requirements.name, "--without-hashes", external=True
         )
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
