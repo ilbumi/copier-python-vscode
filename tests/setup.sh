@@ -34,6 +34,4 @@ copier copy --trust --defaults -r HEAD "${template}" "${DEST}" \
 -d repository_provider="github.com"
 
 pushd $DEST
-git init .
-git add -A .
-git commit -m "feat: init a repo"
+source setup_project.sh
