@@ -1,3 +1,4 @@
+import os
 import re
 import subprocess
 import unicodedata
@@ -41,3 +42,9 @@ class CurrentYearExtension(Extension):
     def __init__(self, environment):
         super().__init__(environment)
         environment.globals["current_year"] = date.today().year
+
+
+class CurrentUserExtension(Extension):
+    def __init__(self, environment):
+        super().__init__(environment)
+        environment.globals["current_user"] = os.getlogin()
