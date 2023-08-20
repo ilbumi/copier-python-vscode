@@ -8,6 +8,7 @@ _templates_suffix: .jinja
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader
 - extensions.py:CurrentYearExtension
+- extensions.py:CurrentUserExtension
 - extensions.py:GitExtension
 - extensions.py:SlugifyExtension
 _skip_if_exists:
