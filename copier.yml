@@ -8,7 +8,6 @@ _templates_suffix: .jinja
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader
 - extensions.py:CurrentYearExtension
-- extensions.py:CurrentUserExtension
 - extensions.py:GitExtension
 - extensions.py:SlugifyExtension
 _skip_if_exists:
@@ -127,8 +126,3 @@ docker_base_image:
   type: str
   help: Base image for the dev container. Edit Dockerfile.dev if your image is not ubuntu-based or have no python installed.
   default: "python:3.11"
-
-current_username:
-  type: str
-  help: Username to use in the Dev container.
-  default: "{{ current_user }}"
