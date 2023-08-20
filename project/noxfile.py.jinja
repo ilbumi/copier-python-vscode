@@ -71,3 +71,13 @@ def check_safety(session: Session) -> None:
             "pdm", "export", "-f", "requirements", "-o", requirements.name, "--without-hashes", external=True
         )
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
+
+
+@nox.session
+def generate_changelog(session: Session) -> None:
+    """Generate changelog from the commits. It should be reviewed and cleaned up by a human.
+
+    Args:
+        session (Session): nox session object
+    """
+    session.run("git-changelog", "-Tbio", "CHANGELOG.md", "-c", "angular")
