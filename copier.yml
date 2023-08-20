@@ -122,7 +122,7 @@ python_package_command_line_name:
   help: Your CLI name if any (for use in the shell)
   default: "{{ project_name | slugify }}"
 
-docker-base-image:
+docker_base_image:
   type: str
   help: Base image for the dev container. Edit Dockerfile.dev if your image is not ubuntu-based or have no python installed.
   default: "{{ python:3.11 }}"

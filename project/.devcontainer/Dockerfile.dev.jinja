@@ -1,4 +1,4 @@
-ARG BASE_IMAGE={{ docker-base-image }}
+ARG BASE_IMAGE={{ docker_base_image }}
 FROM ${BASE_IMAGE}
 RUN apt-get update \
         && apt-get install build-essential git gcc -y \
