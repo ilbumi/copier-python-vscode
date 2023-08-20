@@ -6,6 +6,6 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile.dev
     command: "/bin/sh -c \"while sleep 1000; do :; done\""
-    user: "{{ current_username }}"
+    user: "${UID}:${GID}"
     volumes:
       - "../:/app"
