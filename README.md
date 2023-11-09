@@ -66,8 +66,8 @@ pdm install -v -G full-dev
 Run tasks with Nox:
 
 ```bash
-pdm run nox check_safety
-pdm run nox lint
+pdm run nox -e check_safety
+pdm run nox -e lint
 ```
 
 Install your project as a python package:

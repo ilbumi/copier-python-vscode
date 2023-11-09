@@ -26,22 +26,22 @@ stages:
 
 lint:
   <<: *quality
-  script: pdm run nox lint
+  script: pdm run nox -e lint
 
 check-safety:
   <<: *quality
-  script: pdm run nox check_safety
+  script: pdm run nox -e check_safety
 
 check-types:
   <<: *quality
-  script: pdm run nox check_types
+  script: pdm run nox -e check_types
 
 # Tests
 
 .test-template: &test
   <<: *install-deps
   stage: tests
-  script: pdm run nox test
+  script: pdm run nox -e test
 
 python3.9:
   <<: *test
@@ -58,4 +58,3 @@ python3.11:
 python3.12:
   <<: *test
   image: python3.12
-
