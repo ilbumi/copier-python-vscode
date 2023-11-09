@@ -53,3 +53,25 @@ Or even shorter:
 ```bash
 copier copy --trust "gh:ilbumi/copier-python-vscode" /path/to/your/new/project
 ```
+
+### Working with the generated project
+
+Use PDM to manage dependencies:
+
+```bash
+pdm lock -v -G full-dev
+pdm install -v -G full-dev
+```
+
+Run tasks with Nox:
+
+```bash
+pdm run nox check_safety
+pdm run nox lint
+```
+
+Install your project as a python package:
+
+```bash
+pip install -U git+https://yourgit.example/project
+```
