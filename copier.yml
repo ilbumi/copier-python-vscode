@@ -106,6 +106,7 @@ copyright_license:
   - PostgreSQL License
   - The Unlicense
   - zlib License
+  - None
 
 python_package_distribution_name:
   type: str
