@@ -1,0 +1,61 @@
+variables:
+    PIP_CACHE_DIR: "${CI_PROJECT_DIR}/.cache/pip"
+
+cache:
+  key: "${CI_JOB_NAME}"
+  paths:
+  - .cache/pip
+
+stages:
+  - quality
+  - tests
+  - deploy
+
+.install-deps-template: &install-deps
+  before_script:
+  - pip install pdm
+  - pdm --version
+  - pdm install
+
+# Code Quality
+
+.quality-template: &quality
+  <<: *install-deps
+  image: python:3.9
+  stage: quality
+
+lint:
+  <<: *quality
+  script: pdm run nox lint
+
+check-safety:
+  <<: *quality
+  script: pdm run nox check_safety
+
+check-types:
+  <<: *quality
+  script: pdm run nox check_types
+
+# Tests
+
+.test-template: &test
+  <<: *install-deps
+  stage: tests
+  script: pdm run nox test
+
+python3.9:
+  <<: *test
+  image: python3.9
+
+python3.10:
+  <<: *test
+  image: python3.10
+
+python3.11:
+  <<: *test
+  image: python3.11
+
+python3.12:
+  <<: *test
+  image: python3.12
+

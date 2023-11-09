@@ -42,6 +42,7 @@ repository_provider:
   default: github.com
   choices:
   - github.com
+  - gitlab.com
 
 repository_namespace:
   type: str
