@@ -40,7 +40,7 @@ The template is heavily inspired by [Pawamoy's Copier PDM](https://github.com/pa
 
 ### Requirements
 
-You need `copier` installed in order to use this template.
+You need `git`, `copier`, `copier-templates-extensions`, and `pdm` installed in order to use this template.
 
 ### Starting a project
 
