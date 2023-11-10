@@ -40,7 +40,7 @@ The template is heavily inspired by [Pawamoy's Copier PDM](https://github.com/pa
 
 ### Requirements
 
-You need `copier` installed in order to use this template.
+You need `git`, `copier`, `copier-templates-extensions`, and `pdm` installed in order to use this template.
 
 ### Starting a project
 
@@ -52,4 +52,26 @@ Or even shorter:
 
 ```bash
 copier copy --trust "gh:ilbumi/copier-python-vscode" /path/to/your/new/project
+```
+
+### Working with the generated project
+
+Use PDM to manage dependencies:
+
+```bash
+pdm lock -v -G full-dev
+pdm install -v -G full-dev
+```
+
+Run tasks with Nox:
+
+```bash
+pdm run nox -e check_safety
+pdm run nox -e lint
+```
+
+Install your project as a python package:
+
+```bash
+pip install -U git+https://yourgit.example/project
 ```
