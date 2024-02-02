@@ -30,7 +30,7 @@ author_fullname:
 author_email:
   type: str
   help: Your email
-  default: "{{ 'i.bushmakin@gmail.com' | git_user_email }}"
+  default: "{{ 'im.bushmakin@gmail.com' | git_user_email }}"
 
 author_username:
   type: str
