@@ -21,7 +21,7 @@ The template is heavily inspired by [Pawamoy's Copier PDM](https://github.com/pa
   - [ssort](https://github.com/bwhmather/ssort),
   - [coverage](https://github.com/nedbat/coveragepy)
 - Tests run with [pytest](https://github.com/pytest-dev/pytest) and plugins
-- [Nox](https://github.com/wntrblm/nox) as task runner
+- [Nox](https://github.com/wntrblm/nox) as a task runner
 - All licenses from [choosealicense.com](https://choosealicense.com/appendix/)
 - Support for GitHub workflows
 
@@ -40,7 +40,7 @@ The template is heavily inspired by [Pawamoy's Copier PDM](https://github.com/pa
 
 ### Requirements
 
-You need `git`, `copier`, `copier-templates-extensions`, and `pdm` installed in order to use this template.
+You need `git`, `copier`, `copier-templates-extensions`, and `pdm` installed to use this template.
 
 ### Starting a project
 
@@ -70,7 +70,7 @@ pdm run nox -e check_safety
 pdm run nox -e lint
 ```
 
-Install your project as a python package:
+Install your project as a Python package:
 
 ```bash
 pip install -U git+https://yourgit.example/project
