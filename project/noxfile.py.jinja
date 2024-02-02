@@ -10,7 +10,7 @@ os.environ.update(PDM_IGNORE_SAVED_PYTHON="1", PDM_USE_VENV="1")
 PYSRC = ["src/", "noxfile.py", "tests/"]
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def test(session: Session) -> None:
     """Run tests.
 
@@ -21,7 +21,7 @@ def test(session: Session) -> None:
     session.run("pytest", "--cov", "tests/")
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def format(session: Session) -> None:
     """Run autoformatters.
 
@@ -35,7 +35,7 @@ def format(session: Session) -> None:
     session.run("black", "--config", "config/black.toml", *PYSRC)
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def lint(session: Session) -> None:
     """Run ruff checks.
 
@@ -46,7 +46,7 @@ def lint(session: Session) -> None:
     session.run("ruff", "check", "--config", "config/ruff.toml", *PYSRC)
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def check_types(session: Session) -> None:
     """Run type checking.
 
@@ -57,7 +57,7 @@ def check_types(session: Session) -> None:
     session.run("mypy", "--config-file", "config/mypy.ini", *PYSRC)
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def check_safety(session: Session) -> None:
     """Run safety checks.
 
@@ -73,7 +73,7 @@ def check_safety(session: Session) -> None:
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
 
 
-@nox.session
+@nox.session(venv_backend="none")
 def generate_changelog(session: Session) -> None:
     """Generate changelog from the commits. It should be reviewed and cleaned up by a human.
 
