@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.1](https://github.com/ilbumi/copier-python-vscode/releases/tag/1.2.1) - 2024-02-03
+
+<small>[Compare with the previous version](https://github.com/ilbumi/copier-python-vscode/compare/1.2.0...1.2.1)</small>
+
+### Features
+
+- Fix deprecation warning in `roff.toml`
+- Add mypy pre-commit hook
+
 ## [1.2.0](https://github.com/ilbumi/copier-python-vscode/releases/tag/1.2.0) - 2024-02-03
 
 <small>[Compare with the previous version](https://github.com/ilbumi/copier-python-vscode/compare/1.0.0...1.2.0)</small>
