@@ -1,10 +1,10 @@
-target-version = "py38"
+target-version = "py311"
 line-length = 132
 exclude = [
     "fixtures",
     "site",
 ]
-select = [
+lint.select = [
     "A",
     "ANN",
     "ARG",
@@ -52,7 +52,7 @@ select = [
     "W",
     "YTT",
 ]
-ignore = [
+lint.ignore = [
     "A001",  # Variable is shadowing a Python builtin
     "ANN101",  # Missing type annotation for self
     "ANN102",  # Missing type annotation for cls
@@ -70,7 +70,7 @@ ignore = [
     "TRY003",  # Avoid specifying long messages outside the exception class
 ]
 
-[per-file-ignores]
+[lint.per-file-ignores]
 "src/*/cli.py" = [
     "T201",  # Print statement
 ]
@@ -85,14 +85,14 @@ ignore = [
     "S101",  # Use of assert detected
 ]
 
-[flake8-quotes]
+[lint.flake8-quotes]
 docstring-quotes = "double"
 
-[flake8-tidy-imports]
+[lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[isort]
+[lint.isort]
 known-first-party = ["{{ python_package_import_name }}"]
 
-[pydocstyle]
+[lint.pydocstyle]
 convention = "google"
