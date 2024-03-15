@@ -76,4 +76,4 @@ Install your project as a Python package:
 pip install -U git+https://yourgit.example/project
 ```
 
-Refer to
+Refer to [Cookbook](COOKBOOK.md) for tips
