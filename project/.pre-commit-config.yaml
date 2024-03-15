@@ -10,9 +10,9 @@ repos:
     rev: v0.1.14
     hooks:
         -   id: ruff
-            args: [ --config, config/ruff.toml, --fix ]
+            args: [ --config, .devconfig/ruff.toml, --fix ]
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: ''  # Use the sha / tag you want to point at
     hooks:
     -   id: mypy
-        args: [--config-file, config/mypy.ini]
+        args: [--config-file, .devconfig/mypy.ini]

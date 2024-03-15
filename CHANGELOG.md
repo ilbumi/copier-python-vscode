@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.2](https://github.com/ilbumi/copier-python-vscode/releases/tag/1.2.2) - 2024-02-03
+
+<small>[Compare with the previous version](https://github.com/ilbumi/copier-python-vscode/compare/1.2.1...1.2.2)</small>
+
+### Minor fixes and refactoring
+
+- Move linting and formatting configs from `config` to `.devconfig`
+- Remove `python3.9`
+- Remove unused features
+
 ## [1.2.1](https://github.com/ilbumi/copier-python-vscode/releases/tag/1.2.1) - 2024-02-03
 
 <small>[Compare with the previous version](https://github.com/ilbumi/copier-python-vscode/compare/1.2.0...1.2.1)</small>

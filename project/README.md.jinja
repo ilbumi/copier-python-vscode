@@ -1,11 +1,5 @@
 # {{ project_name }}
 
-{% if repository_provider == "github.com" -%}
-[![ci](https://github.com/{{ repository_namespace }}/{{ repository_name }}/workflows/ci/badge.svg)](https://github.com/{{ repository_namespace }}/{{ repository_name }}/actions?query=workflow%3Aci)
-[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://{{ repository_namespace }}.{{ repository_provider[:-4] }}.io/{{ repository_name }}/)
-[![gitter](https://badges.gitter.im/join%20chat.svg)](https://gitter.im/{% if repository_namespace != author_username %}{{ repository_namespace }}/{{ repository_name }}{% else %}{{ repository_name }}/community{% endif %})
-{% endif -%}
-
 {{ project_description }}
 
 ## Installation

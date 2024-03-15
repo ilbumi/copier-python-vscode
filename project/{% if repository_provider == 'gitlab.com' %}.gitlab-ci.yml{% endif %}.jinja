@@ -21,7 +21,7 @@ stages:
 
 .quality-template: &quality
   <<: *install-deps
-  image: python:3.9
+  image: python:3.10
   stage: quality
 
 lint:
@@ -42,10 +42,6 @@ check-types:
   <<: *install-deps
   stage: tests
   script: pdm run nox -e test
-
-python3.9:
-  <<: *test
-  image: python3.9
 
 python3.10:
   <<: *test

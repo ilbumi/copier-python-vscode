@@ -77,7 +77,7 @@ license = {text = "
     None
     {%- endif %}"}
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 keywords = []
 dynamic = ["version"]
 classifiers = [
@@ -86,7 +86,6 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -124,24 +123,9 @@ editable-backend = "editables"
 
 [tool.pdm.dev-dependencies]
 nox = ["nox"]
-full-dev = ["{{ python_package_distribution_name }}[nox,docs,quality,typing,security,tests,precommit]"]
-ci-quality = ["{{ python_package_distribution_name }}[nox,docs,quality,typing,security]"]
+full-dev = ["{{ python_package_distribution_name }}[nox,quality,typing,security,tests,precommit]"]
+ci-quality = ["{{ python_package_distribution_name }}[nox,quality,typing,security]"]
 ci-tests = ["{{ python_package_distribution_name }}[nox,tests]"]
-docs = [
-    "black>=23.1",
-    "markdown-callouts>=0.2",
-    "markdown-exec>=0.5",
-    "mkdocs>=1.5",
-    "mkdocs-coverage>=0.2",
-    "mkdocs-gen-files>=0.3",
-    "mkdocs-git-committers-plugin-2>=1.1",
-    {#- "mkdocs-git-revision-date-localized-plugin>=1.2", #}
-    "mkdocs-literate-nav>=0.4",
-    "mkdocs-material>=7.3",
-    "mkdocs-minify-plugin>=0.6.4",
-    "mkdocstrings[python]>=0.18",
-    "toml>=0.10",
-]
 maintain = [
     "black>=23.1",
     "blacken-docs>=1.13",

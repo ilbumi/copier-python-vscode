@@ -31,8 +31,8 @@ def format(session: Session) -> None:
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
     session.run("ssort", *PYSRC)
     session.run("isort", *PYSRC)
-    session.run("ruff", "check", "--config", "config/ruff.toml", "--fix", *PYSRC)
-    session.run("black", "--config", "config/black.toml", *PYSRC)
+    session.run("ruff", "check", "--config", ".devconfig/ruff.toml", "--fix", *PYSRC)
+    session.run("black", "--config", ".devconfig/black.toml", *PYSRC)
 
 
 @nox.session(venv_backend="none")
@@ -43,7 +43,7 @@ def lint(session: Session) -> None:
         session (Session): nox session object
     """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
-    session.run("ruff", "check", "--config", "config/ruff.toml", *PYSRC)
+    session.run("ruff", "check", "--config", ".devconfig/ruff.toml", *PYSRC)
 
 
 @nox.session(venv_backend="none")
@@ -54,7 +54,7 @@ def check_types(session: Session) -> None:
         session (Session): nox session object
     """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
-    session.run("mypy", "--config-file", "config/mypy.ini", *PYSRC)
+    session.run("mypy", "--config-file", ".devconfig/mypy.ini", *PYSRC)
 
 
 @nox.session(venv_backend="none")
@@ -65,7 +65,7 @@ def check_safety(session: Session) -> None:
         session (Session): nox session object
     """
     session.run_always("pdm", "install", "-G", "ci-quality", external=True)
-    session.run("bandit", "-r", "--configfile", "config/bandit.toml", *PYSRC)
+    session.run("bandit", "-r", "--configfile", ".devconfig/bandit.toml", *PYSRC)
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "pdm", "export", "-f", "requirements", "-o", requirements.name, "--without-hashes", external=True
