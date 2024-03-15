@@ -24,17 +24,17 @@ The template is heavily inspired by [Pawamoy's Copier PDM](https://github.com/pa
 - [Nox](https://github.com/wntrblm/nox) as a task runner
 - All licenses from [choosealicense.com](https://choosealicense.com/appendix/)
 - Support for GitHub workflows
+- VSCode Dev Containers as development environments
+- Support for GitLab CI/CD
 
 ### Planned Features
 
-- VSCode Dev Containers as development environments
 - Documentation built with [MkDocs](https://github.com/mkdocs/mkdocs)
   ([Material theme](https://github.com/squidfunk/mkdocs-material)
   and "autodoc" [mkdocstrings plugin](https://github.com/mkdocstrings/mkdocstrings))
 - Pre-configured tools for code formatting, quality analysis and testing:
   - [blacken-docs](https://github.com/adamchainz/blacken-docs), support for tests
 - Auto-generated `CHANGELOG.md` from git commits
-- Support for GitLab CI/CD
 
 ## Quick setup and usage
 
@@ -75,3 +75,5 @@ Install your project as a Python package:
 ```bash
 pip install -U git+https://yourgit.example/project
 ```
+
+Refer to
