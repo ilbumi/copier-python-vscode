@@ -27,7 +27,7 @@ jobs:
         - "3.10"
         - "3.11"
         copier-version:
-        - "8.1.0"
+        - "8.3.0"
     runs-on: ${{ matrix.os }}
 
     steps:
